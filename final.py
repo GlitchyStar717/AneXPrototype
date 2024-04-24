@@ -273,51 +273,51 @@ q1_specs,q2_specs,q3_specs,max_specs
 #Input Questions for recommendation
 
 stage1 = [
-    'How do you want to get recommendation?',
-    'Entering your own phrase',
-    'Get your questions asked'
+    'How do you want to get recommendation?  :  ',
+    'Entering your own phrase  :  ',
+    'Get your questions asked  :  '
 ]
 
 exact_questions = [
     '1.) IPhone 2.) Android 3.)Open to both',
-    "Do you want a particular smartphone brand? \n1.) No 2.) Yes (Input your brand)",
-    'What screen size would you prefer? \n1.) below 6.1" 2.) between 6.1" & 6.6" 3.) above 6.6" 4.) Doesn\'t matter',
-    'Do you want your phone to have 5g? \n1.) Yes 2.) No 3.) Any',
-    'What is your budget range Example (inside the "") "45000-50000"?'
+    "Do you want a particular smartphone brand? \n1.) No 2.) Yes (Input your brand)  :  ",
+    'What screen size would you prefer? \n1.) below 6.1" 2.) between 6.1" & 6.6" 3.) above 6.6" 4.) Doesn\'t matter  :  ',
+    'Do you want your phone to have 5g? \n1.) Yes 2.) No 3.) Any  :  ',
+    'What is your budget range Example (inside the "") "45000-50000"?  :  '
 ]
 performance_questions = [
-    'Do you frequently play games on your smartphone? (y/n)',
-    'Do you use a lot of apps? (y/n)',
-    'Do you want to take high quality photos and videos (y/n)',
-    'Do you wish to use your smartphone for over 5 years? (y/n)',
-    'Do you wish to have all new features in your smartphone? (y/n)'
+    'Do you frequently play games on your smartphone? (y/n)  :  ',
+    'Do you use a lot of apps? (y/n)  :  ',
+    'Do you want to take high quality photos and videos (y/n)  :  ',
+    'Do you wish to use your smartphone for over 5 years? (y/n)  :  ',
+    'Do you wish to have all new features in your smartphone? (y/n)  :  '
 ]
 camera_questions = [
     # 'Do you want to take high quality photos and videos? (y/n)', #Qn 8
-    'Do you want a camera that shoot good in night time? (y/n)',
-    'Would you love to shoot zoom and potrait shots? (y/n)',
-    'Do you want to shoot many videos? (y/n)',
-    'Do you want to shoot many photos? (y/n)'
+    'Do you want a camera that shoot good in night time? (y/n)  :  ',
+    'Would you love to shoot zoom and potrait shots? (y/n)  :  ',
+    'Do you want to shoot many videos? (y/n)  :  ',
+    'Do you want to shoot many photos? (y/n)  :  '
 ]
 software_questions = [
-    'Do you want to get new updates for 5+ years? (y/n)',
-    "Do you mind useless apps pre-installed in your smartphone? (y/n)",
+    'Do you want to get new updates for 5+ years? (y/n)  :  ',
+    "Do you mind useless apps pre-installed in your smartphone? (y/n)  :  ",
     'Do you like to have easy software support? (y/n)',
-    'Can you distinguish between smooth and non smooth animation? (y/n)'
+    'Can you distinguish between smooth and non smooth animation? (y/n)  :  '
 ]
 display_questions = [
     #'Do you frequently play games on your smartphone? (y/n)', #Qn 6
-    'Do you do a lot of scrolling? (y/n)',
-    "Do you like watching movies in mobile? (y/n)",
-    'Do you consume a lot of media like youtube and more? (y/n)',
-    'Do you wish to use phone a lot on sunlight? (y/n)'
+    'Do you do a lot of scrolling? (y/n)  :  ',
+    "Do you like watching movies in mobile? (y/n)  :  ",
+    'Do you consume a lot of media like youtube and more? (y/n)  :  ',
+    'Do you wish to use phone a lot on sunlight? (y/n)  :  '
 ]
 storage_questions = [
     # "Do you take a lot of photos and videos? (y/n)", # Qn 13 and 14
-    'Do you store a lot of offline medias like movies or other files in smartphones? (y/n)',
-    "Do you want your smartphone to be able to store everything you want for years to come? (y/n)",
-    'Do you want to transfer from and to your smartphones quickly? (y/n)',
-    'Do you download a lot of apps or games? (y/n)' 
+    'Do you store a lot of offline medias like movies or other files in smartphones? (y/n)  :  ',
+    "Do you want your smartphone to be able to store everything you want for years to come? (y/n)  :  ",
+    'Do you want to transfer from and to your smartphones quickly? (y/n)  :  ',
+    'Do you download a lot of apps or games? (y/n)  :  ' 
 ]
 
 # #Haven't yet implemented the rating system for each sub-category so useless since no specs can deliever the speaker quality. 
@@ -326,9 +326,9 @@ storage_questions = [
 # ]
 
 battery_questions = [
-    "Do you like a bigger battery? (y/n)",
-    'Do you charge very rarely? (y/n)',
-    "Do you want fast charging? (y/n)"
+    "Do you like a bigger battery? (y/n)  :  ",
+    'Do you charge very rarely? (y/n)  :  ',
+    "Do you want fast charging? (y/n)  :  "
     # 'Do you want wireless charging? (y/n)'
 ]
 
@@ -460,6 +460,7 @@ df3.sort_values(by='rating',ascending=False,inplace=True)
 
 
 # %%
+df3.to_csv("Recommendation.csv")
 df3
 
 # %%
