@@ -279,7 +279,7 @@ stage1 = [
 ]
 
 exact_questions = [
-    '1.) IPhone 2.) Android 3.)Open to both',
+    '1.) IPhone 2.) Android 3.)Open to both  :  ',
     "Do you want a particular smartphone brand? \n1.) No 2.) Yes (Input your brand)  :  ",
     'What screen size would you prefer? \n1.) below 6.1" 2.) between 6.1" & 6.6" 3.) above 6.6" 4.) Doesn\'t matter  :  ',
     'Do you want your phone to have 5g? \n1.) Yes 2.) No 3.) Any  :  ',
@@ -293,7 +293,7 @@ performance_questions = [
     'Do you wish to have all new features in your smartphone? (y/n)  :  '
 ]
 camera_questions = [
-    # 'Do you want to take high quality photos and videos? (y/n)', #Qn 8
+    # 'Do you want to take high quality photos and videos? (y/n)  :  ', #Qn 8
     'Do you want a camera that shoot good in night time? (y/n)  :  ',
     'Would you love to shoot zoom and potrait shots? (y/n)  :  ',
     'Do you want to shoot many videos? (y/n)  :  ',
@@ -306,14 +306,14 @@ software_questions = [
     'Can you distinguish between smooth and non smooth animation? (y/n)  :  '
 ]
 display_questions = [
-    #'Do you frequently play games on your smartphone? (y/n)', #Qn 6
+    #'Do you frequently play games on your smartphone? (y/n)  :  ', #Qn 6
     'Do you do a lot of scrolling? (y/n)  :  ',
     "Do you like watching movies in mobile? (y/n)  :  ",
     'Do you consume a lot of media like youtube and more? (y/n)  :  ',
     'Do you wish to use phone a lot on sunlight? (y/n)  :  '
 ]
 storage_questions = [
-    # "Do you take a lot of photos and videos? (y/n)", # Qn 13 and 14
+    # "Do you take a lot of photos and videos? (y/n)  :  ", # Qn 13 and 14
     'Do you store a lot of offline medias like movies or other files in smartphones? (y/n)  :  ',
     "Do you want your smartphone to be able to store everything you want for years to come? (y/n)  :  ",
     'Do you want to transfer from and to your smartphones quickly? (y/n)  :  ',
@@ -322,14 +322,14 @@ storage_questions = [
 
 # #Haven't yet implemented the rating system for each sub-category so useless since no specs can deliever the speaker quality. 
 # speaker_questions = [
-#     # "Would you like a good speaker? \n1.) yes (y) 2.) don't mind (n)" 
+#     # "Would you like a good speaker? \n1.) yes (y) 2.) don't mind (n)  :  " 
 # ]
 
 battery_questions = [
     "Do you like a bigger battery? (y/n)  :  ",
     'Do you charge very rarely? (y/n)  :  ',
     "Do you want fast charging? (y/n)  :  "
-    # 'Do you want wireless charging? (y/n)'
+    # 'Do you want wireless charging? (y/n)  :  '
 ]
 
 all_categories = [exact_questions,performance_questions, camera_questions,software_questions,display_questions,storage_questions,battery_questions]
