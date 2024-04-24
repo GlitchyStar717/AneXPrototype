@@ -36,30 +36,29 @@ PROCESSING
     if none in 6 - 8.) set mid
     if none in 6 - 10.) set low
     CAMERA
-    11.) if yes, mid
-    12.) if yes, high
-    11,13.) if any, mid
-    14.) if yes, prefer iphones
-    15.) if yes, prefer android
+    8,12) if yes, mid
+    11.) if yes, high
+    13.) if yes, prefer iphones
+    14.) if yes, prefer google
     SOFTWARE
-    16.) if yes prefer iphone, samsung or pixel
-    17-19.) if any y prefer google, iphone, samsung, pixel, motorola
-    16-19.) if none, do nothing
+    15.) if yes prefer iphone, samsung or pixel
+    16-18.) if any y prefer google, iphone, samsung, pixel, motorola
+    15-18.) if none, do nothing
     DISPLAY
-    6,19-20.) if yes, high refresh rate
-    21-22.) if yes, oled
-    23.) if yes, high nits (brightness)
+    6,18-19.) if yes, high refresh rate
+    20-21.) if yes, oled #No oled data, so print choose a smartphone with OLED
+    22.) if yes, high nits (brightness) #Since there's no nits data, so print choose a smartphone with high NITS
     STORAGE
-    24-26.) if yes, prefer expandable storage and high storage
-    27.) if yes, prefer ufs 3 or more
-    28.) if yes, prefer high storage
+    13,14,23,24.) if yes, prefer expandable storage and high storage
+    25.) if yes, prefer ufs 3 or more #No UFS data, so print choose smartphone with ufs 3.1 or more
+    26.) if yes, prefer high storage
     SPEAKER
-    29.) if yes, prefer iphone, oneplus
+    XX.) if yes, use the speaker ratings, but, that is not yet implemented
     BATTERY
-    5-7,14,15,20-23,30-31.)if any y, batter > 4200 or iphone
-    5-7,14,15,20-23,30-31.)if more than 2 y, batter > 4800 or iphone pro
-    32.) if y, fast charging
-    33.) if y, wireless charging
+    5-7,13,14,19-21,27-28.)if any y, batter > 4200 or iphone
+    5-7,13,14,19-21,27-28.)if more than 2 y, batter > 4800 or iphone pro
+    29.) if y, fast charging
+    XX.) if y, wireless charging #No data, so skip qn
 
 
 
