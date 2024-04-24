@@ -302,7 +302,7 @@ camera_questions = [
 software_questions = [
     'Do you want to get new updates for 5+ years? (y/n)  :  ',
     "Do you mind useless apps pre-installed in your smartphone? (y/n)  :  ",
-    'Do you like to have easy software support? (y/n)',
+    'Do you like to have easy software support? (y/n)  :  ',
     'Can you distinguish between smooth and non smooth animation? (y/n)  :  '
 ]
 display_questions = [
@@ -353,22 +353,22 @@ lst
 df3 = df2.copy()
 
 #Exact Question (0-4)
-if(lst[0]==1):
+if(lst[0]=='1'):
     df3.query("brand_name == 'apple'",inplace=True)
-elif(lst[0]==2):
+elif(lst[0]=='2'):
     df3.query("brand_name != 'apple'",inplace=True)
-if(lst[1]==2):
-    user_brand = input("Enter the brand you want")
+if(lst[1]=='2'):
+    user_brand = input("Enter the brand you want  :  ")
     df3.query(f"brand_name == {user_brand}",inplace=True)
-if(lst[2]==1):
+if(lst[2]=='1'):
     df3.query("screen_size <= 6.1",inplace=True)
-elif(lst[2]==2):
+elif(lst[2]=='2'):
     df3.query("screen_size > 6.1 and screen_size <=6.6",inplace=True)
-elif(lst[2]==3):
+elif(lst[2]=='3'):
     df3.query("screen_size > 6.6",inplace=True)
-if(lst[3]==1):
+if(lst[3]=='1'):
     df3.query("has_5g == True",inplace=True)
-elif(lst[3]==2):
+elif(lst[3]=='2'):
     df3.query("has_5g != False",inplace=True)
 budget_min, budget_max = map(int,lst[4].split('-'))
 df3.query(f"price >= {budget_min} and price <= {budget_max}",inplace=True)
