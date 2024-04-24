@@ -280,7 +280,7 @@ stage1 = [
 
 exact_questions = [
     '1.) IPhone 2.) Android 3.)Open to both  :  ',
-    "Do you want a particular smartphone brand? \n1.) No 2.) Yes (Input your brand)  :  ",
+    "Do you want a particular smartphone brand? \n1.) No 2.) Yes (We will ask your to input your brand later)  :  ",
     'What screen size would you prefer? \n1.) below 6.1" 2.) between 6.1" & 6.6" 3.) above 6.6" 4.) Doesn\'t matter  :  ',
     'Do you want your phone to have 5g? \n1.) Yes 2.) No 3.) Any  :  ',
     'What is your budget range Example (inside the "") "45000-50000"?  :  '
