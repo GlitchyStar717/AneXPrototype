@@ -336,7 +336,7 @@ all_categories = [exact_questions,performance_questions, camera_questions,softwa
 
 # %%
 #Asking the questions
-
+print("\n\nWELCOME TO THE RECOMMENDATION SYSTEM. JUST ANSWER FEW QUESTIONS AND YOU WILL GET YOUR PERSONALIZED REOMMENDATION.\n\n")
 lst = []
 for category in all_categories:
     for questions in category:
