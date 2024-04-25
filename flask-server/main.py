@@ -142,12 +142,13 @@ for item in all_questions:
 #THE full recommendation process
 def recommend(responses):
 #THE full recommendation process
-    
+    print("Responses : ",responses)
     #Defining the default case incase user forgets to input any button. Max camera, max performance and doesn't mind the screen size, the 5g and brands
-    lst = ['3', '1', '4', '3', '5000-170000', True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+    lst = [3, 1, 4, 3, '5000-170000', True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
     #Convert to list as the person who made the engine used list for analyzing.
     # for i in range(len(lst2)):
     user_inputs = responses.keys()
+    print("User Inputs : ", user_inputs)
     if '0' in user_inputs:
         if responses['0'] == 'IPhone':
             lst[0]=1
@@ -158,9 +159,33 @@ def recommend(responses):
             lst[1]=1
         else:
             lst[1]=2
-        
-        
+    if '2' in user_inputs:
+        if responses['2'] == 'below 6.1"':
+            lst[1]=1
+        elif responses['2'] == 'between 6.1" & 6.6"':
+            lst[1]=2
+        elif responses['2'] == 'above 6.6"':
+            lst[1]=3
+        else:
+            lst[1]=4
+    if '3' in user_inputs:
+        if responses['3'] == 'Yes':
+            lst[0]=1
+        elif responses['3'] == 'No':
+            lst[0]=2
+    if '4' in user_inputs:
+        if responses['4'] == 'Budget':
+            lst[4]="5000-20000"
+        elif responses['4'] == 'Midrange':
+            lst[4]="20000-50000"
+        elif responses['4'] == 'Flagship':
+            lst[4]="50000-170000"
+    for i in range(5,len(lst)+5):
+        if f'{i}' in user_inputs:
+            lst[i]= True if responses[f'{i}'] == 'Yes' else False
 
+        
+    print("List : ",lst)
 
 
 
@@ -427,4 +452,4 @@ def recommend(responses):
 
     #Returning the final recommendation
     df3.sort_values(by='rating',ascending=False,inplace=True)
-    return df3.loc[0:10]
+    return list(df3.loc[0:10])

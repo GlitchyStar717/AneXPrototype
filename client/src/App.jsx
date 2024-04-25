@@ -91,7 +91,7 @@ function App() {
                     type="radio"
                     id={`question-${index}-yes`}
                     name={`question-${index}`}
-                    value="Yes"
+                    value="True"
                     onChange={() => handleChange(index, "Yes")}
                   />
                   <label htmlFor={`question-${index}-yes`}>Yes</label>
