@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, session # type: ignore
 from flask_cors import CORS # type: ignore
-from main import final_object, recommended_phones
+from main import final_object, recommend
 
 app = Flask(__name__)
 app.secret_key = 'My secret key'
@@ -15,7 +15,7 @@ def questions():
 def submit_responses():
 
     responses = request.json
-    print(responses)
+    print("\n\n\nRESPONSES        :       ",responses,end='\n\n\n\n')
     session['responses'] = responses
     return {'message': 'Responses saved successfully'}
 
