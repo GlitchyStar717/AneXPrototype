@@ -3,13 +3,6 @@ import pandas as pd # type: ignore
 
 # yes_no_option = ["Yes", "No"]
 
-
-stage1 = [
-    "How do you want to get recommendation?",
-    "Entering your own phrase",
-    "Get your questions asked",
-]
-
 exact_questions = [
     {
         "question": "What phone do you want?",
@@ -57,10 +50,6 @@ performance_questions = [
 
 camera_questions = [
     {
-        "question": "Do you want to take high quality photos and videos?",
-        "options": ["Yes", "No"],
-    },
-    {
         "question": "Do you want a camera that shoot good in night time?",
         "options": ["Yes", "No"],
     },
@@ -105,7 +94,6 @@ display_questions = [
 ]
 
 storage_questions = [
-    {"question": "Do you take a lot of photos and videos?", "options": ["Yes", "No"]},
     {
         "question": "Do you store a lot of offline media like movies or other files in smartphones?",
         "options": ["Yes", "No"],
@@ -121,27 +109,21 @@ storage_questions = [
     {"question": "Do you download a lot of apps or games?", "options": ["Yes", "No"]},
 ]
 
-speaker_questions = [
-    {"question": "Would you like a good speaker?", "options": ["Yes", "No"]}
-]
-
 battery_questions = [
     {"question": "Do you like a bigger battery?", "options": ["Yes", "No"]},
     {"question": "Do you charge very rarely?", "options": ["Yes", "No"]},
     {"question": "Do you want fast charging?", "options": ["Yes", "No"]},
-    {"question": "Do you want wireless charging?", "options": ["Yes", "No"]},
 ]
 
 
 all_questions = []
 all_questions.extend(exact_questions)
-# all_questions.extend(performance_questions)
-# all_questions.extend(camera_questions)
-# all_questions.extend(software_questions)
-# all_questions.extend(display_questions)
-# all_questions.extend(storage_questions)
-all_questions.extend(speaker_questions)
-# all_questions.extend(battery_questions)
+all_questions.extend(performance_questions)
+all_questions.extend(camera_questions)
+all_questions.extend(software_questions)
+all_questions.extend(display_questions)
+all_questions.extend(storage_questions)
+all_questions.extend(battery_questions)
 
 # Combine all questions into a single array
 # { "questions": [{"question":"", "options":[]},{}] }

@@ -2,7 +2,6 @@
 #IMport necessary libraries
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 # %%
 #import the smartphone data
@@ -55,7 +54,7 @@ def evaluate_resolution(expression):
 df2['pixels'] = df2.apply(evaluate_resolution, axis=1)
 
 df2.info()
-print(df2)
+df2
 
 #filter resolution
 # category = 'pixels'
@@ -204,12 +203,12 @@ def categorize_camera(row):
         c1 = 5
 
     c2 = (9 + (row["primary_camera_rear"]-12)/(max_rear-12)) if row["primary_camera_rear"] > 12 else 9*row["primary_camera_rear"]/12
-    c3 = (9 + (row["primary_camera_front"]-12)/(max_front-12)) if row["primary_camera_front"] > 10 else 9*row["primary_camera_front"]/10
+    c3 = (9 + (row["primary_camera_front"]-10)/(max_front-10)) if row["primary_camera_front"] > 10 else 9*row["primary_camera_front"]/10
     
     brand_quality = {'apple':2.5, 'google':2.5, 'samsung':1.5,'huawei':1.5}
     c4 = brand_quality[row['brand_name']] if row["brand_name"] in brand_quality else 0
 
-    total = 10 + 10 + 10 + 2 # sum of maximum of c1 + c2 + c3 + c4
+    total = 10 + 10 + 10 + 2.5 # sum of maximum of c1 + c2 + c3 + c4
     rating = (c1+c2+c3+c4)*10.0/total
     return rating
     
@@ -228,7 +227,8 @@ df2['phone_category'] = df2.apply(categorize_phone, axis=1)
 df2['camera_ratings'] = df2.apply(categorize_camera, axis=1)
 df2['performance_ratings'] = df2.apply(categorize_performance, axis=1)
 
-df2
+df2.sort_values(by='performance_ratings',inplace=True,ascending=False)
+df2.head(30)
 
 
 # %%
@@ -272,14 +272,14 @@ q1_specs,q2_specs,q3_specs,max_specs
 # %%
 #Input Questions for recommendation
 
-stage1 = [
-    'How do you want to get recommendation?  :  ',
-    'Entering your own phrase  :  ',
-    'Get your questions asked  :  '
-]
+# stage1 = [
+#     'How do you want to get recommendation?  :  ',
+#     'Entering your own phrase  :  ',
+#     'Get your questions asked  :  '
+# ]
 
 exact_questions = [
-    '1.) IPhone 2.) Android 3.)Open to both  :  ',
+    '1.) IPhone 2.) Android 3.) Open to both  :  ',
     "Do you want a particular smartphone brand? \n1.) No 2.) Yes (We will ask your to input your brand later)  :  ",
     'What screen size would you prefer? \n1.) below 6.1" 2.) between 6.1" & 6.6" 3.) above 6.6" 4.) Doesn\'t matter  :  ',
     'Do you want your phone to have 5g? \n1.) Yes 2.) No 3.) Any  :  ',
@@ -326,7 +326,7 @@ storage_questions = [
 # ]
 
 battery_questions = [
-    "Do you like a bigger battery? (y/n)  :  ",
+    "Do you like a large battery capacity? (y/n)  :  ",
     'Do you charge very rarely? (y/n)  :  ',
     "Do you want fast charging? (y/n)  :  "
     # 'Do you want wireless charging? (y/n)  :  '
@@ -359,7 +359,7 @@ elif(lst[0]=='2'):
     df3.query("brand_name != 'apple'",inplace=True)
 if(lst[1]=='2'):
     user_brand = input("Enter the brand you want  :  ")
-    df3.query(f"brand_name == {user_brand}",inplace=True)
+    df3.query(f"brand_name == '{user_brand}'",inplace=True)
 if(lst[2]=='1'):
     df3.query("screen_size <= 6.1",inplace=True)
 elif(lst[2]=='2'):
@@ -404,7 +404,7 @@ df3.apply(user_performance_camera,axis=1)
 #Software_Questions(14-17)
 lst[15]=not lst[15] #Because it's asking a negative question. So we invert the truth value
 def bad_software(row):
-    if row['brand_name'] not in ['apple','google','samsung','motorola','samsung']:
+    if row['brand_name'] not in ['apple','google','samsung','motorola','asus','oneplus']:
         row['rating'] = row['rating']*0.95
 if any(lst[15:17]):
     df3.apply(bad_software,axis=1)
@@ -462,6 +462,9 @@ df3.sort_values(by='rating',ascending=False,inplace=True)
 # %%
 df3.to_csv("Recommendation.csv")
 df3
+
+# %%
+
 
 # %%
 

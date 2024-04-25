@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, session # type: ignore
 from flask_cors import CORS # type: ignore
-from main import final_object
+from main import final_object, recommended_phones
 
 app = Flask(__name__)
 app.secret_key = 'My secret key'
