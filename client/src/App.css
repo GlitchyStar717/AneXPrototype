@@ -1,0 +1,123 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Change the font to a more readable one */
+    background-color: #282a39;
+    /* Set a light background color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.container {
+    position: relative;
+    max-width: 800px;
+    /* Adjust the maximum width of the container */
+    width: 100%;
+    /* margin: 0 auto; */
+    padding: 20px;
+    background-color: #282a39;
+    /* Set a white background for the form */
+    border-radius: 8px;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+    /* Add a subtle shadow */
+}
+
+
+
+#brand {
+    text-align: center;
+    font-size: 36px;
+    /* Adjust the font size of the brand text */
+    color: #b375d3;
+    /* Set the text color */
+    text-transform: uppercase;
+    /* Convert text to uppercase */
+    margin: 0;
+    /* Remove margin from the brand text */
+    padding: 0;
+    /* Remove padding from the brand text */
+    font-weight: bold;
+    /* Set the font weight to bold */
+    letter-spacing: 2px;
+    /* Add spacing between the letters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Add a subtle shadow to the brand text */
+
+}
+
+form {
+    background-color: #333645;
+    /* Set a white background for the form */
+    padding: 20px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 0 10px rgba(127, 46, 46, 0.1);
+    /* Add a subtle shadow */
+}
+
+p {
+    font-size: 18px;
+    /* Change text color to a darker shade */
+    line-height: 1.5;
+    /* Increase the font size for better readability */
+}
+
+input[type='radio'] {
+
+    color: #9ca3af;
+    margin-right: 20px;
+    /* Increase the right margin */
+    margin-bottom: 10px;
+    /* Add bottom margin to create vertical space between radio buttons */
+}
+
+/*change color of radio button after pressed*/
+input[type='radio']:checked+label {
+    color: aquamarine;
+}
+
+
+
+button {
+    background-color: #007bff;
+    /* Change the button color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #042d5a;
+    /* Darken the button color on hover */
+}
+
+button[type='submit'] {
+    margin-top: 20px;
+    /* Add margin to create space */
+}
+
+#predictions {
+    margin-top: 20px;
+}
+
+#predictions h2 {
+    font-size: 24px;
+}
+
+#predictions p {
+    font-size: 20px;
+}
+
+.list {
+    color: #9ca3af
+}

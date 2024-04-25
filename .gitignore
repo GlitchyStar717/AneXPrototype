@@ -1,2 +1,5 @@
 Draft1/
 */venv
+flask-server/__pycache__/
+client/node_modules/
+flask-server/server/
