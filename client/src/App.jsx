@@ -6,14 +6,17 @@ function App() {
   const [questions, setQuestions] = useState([]);
 
   // State to store user responses
-  let [responses, setResponses] = useState([]);
+  const [responses, setResponses] = useState([]);
   const [predictions, setPredictions] = useState(null);
+  const [textFieldValue, setTextFieldValue] = useState('');
+
 
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send the responses to the server or process them as needed
     console.log(responses);
+    
     fetch('api/submit-responses', {
       method: 'POST',
       headers: {
@@ -33,8 +36,10 @@ function App() {
         console.error('Error submitting responses:', error);
       });
 
+      setResponses([]);
+      setTextFieldValue('');
+
     // Reset the responses
-    setResponses([]);
 
     // Fetch the predictions from the server
     fetch('api/predictions')
@@ -75,6 +80,7 @@ function App() {
           placeholder="Lower range-Higher Range"
           className="custom-text-input" // Add custom class
           onChange={(e) => handleChange(index, e.target.value)}
+
         />
       );
     }
@@ -89,6 +95,8 @@ function App() {
               name={`question-${index}`}
               value={option}
               onChange={() => handleChange(index, option)}
+              checked={responses[index] === option} // Set checked based on response state
+
             />
             <label htmlFor={`question-${index}-${optionIndex}`}>{option}</label>
           </div>
@@ -103,51 +111,6 @@ function App() {
   return (
     <>
       <div>
-        {/* <form onSubmit={handleSubmit}>
-          {questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              {question.options ? (
-                <div>
-                  {question.options.map((option, optionIndex) => (
-                    <div key={optionIndex}>
-                      <input
-                        type="radio"
-                        id={`question-${index}-${optionIndex}`}
-                        name={`question-${index}`}
-                        value={option}
-                        onChange={() => handleChange(index, option)}
-                      />
-                      <label htmlFor={`question-${index}-${optionIndex}`}>{option}</label>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div>
-                  <input
-                    type="radio"
-                    id={`question-${index}-yes`}
-                    name={`question-${index}`}
-                    value="True"
-                    onChange={() => handleChange(index, "Yes")}
-                  />
-                  <label htmlFor={`question-${index}-yes`}>Yes</label>
-
-                  <input
-                    type="radio"
-                    id={`question-${index}-no`}
-                    name={`question-${index}`}
-                    value="No"
-                    onChange={() => handleChange(index, "No")}
-                  />
-                  <label htmlFor={`question-${index}-no`}>No</label>
-                </div>
-              )}
-            </div>
-          ))}
-          <button type="submit">Submit</button>
-        </form> */}
-
         <form onSubmit={handleSubmit}>
           {questions.map((question, index) => (
             <div key={index}>

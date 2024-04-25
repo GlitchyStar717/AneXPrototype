@@ -147,42 +147,37 @@ def recommend(responses):
 #THE full recommendation process
     print("\n\nResponses : ",responses)
     #Defining the default case incase user forgets to input any button. Max camera, max performance and doesn't mind the screen size, the 5g and brands
-    lst = [3, 1, 4, 3, '5000-170000', True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+    lst = [3, 1, 4, 3, '5000-170000', True, True, True, True, True, True, True, True, True, False, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
     #Convert to list as the person who made the engine used list for analyzing.
     # for i in range(len(lst2)):
     user_inputs = responses.keys()
     print("User Inputs : ", user_inputs)
     if '0' in user_inputs:
         if responses['0'] == 'IPhone':
-            lst[0]=1
+            lst[0]='1'
         elif responses['0'] == 'Android':
-            lst[0]=2
+            lst[0]='2'
     if '1' in user_inputs:
         if responses['1'] == 'No':
-            lst[1]=1
+            lst[1]='1'
         else:
-            lst[1]=2
+            lst[1]='2'
     if '2' in user_inputs:
         if responses['2'] == 'below 6.1"':
-            lst[2]=1
+            lst[2]='1'
         elif responses['2'] == 'between 6.1" & 6.6"':
-            lst[2]=2
+            lst[2]='2'
         elif responses['2'] == 'above 6.6"':
-            lst[2]=3
+            lst[2]='3'
         else:
-            lst[2]=4
+            lst[2]='4'
     if '3' in user_inputs:
         if responses['3'] == 'Yes':
-            lst[3]=1
+            lst[3]='1'
         elif responses['3'] == 'No':
-            lst[3]=2
+            lst[3]='2'
     if '4' in user_inputs:
-        if responses['4'] == 'Budget':
-            lst[4]="5000-20000"
-        elif responses['4'] == 'Midrange':
-            lst[4]="20000-50000"
-        elif responses['4'] == 'Flagship':
-            lst[4]="50000-170000"
+        lst[4]=responses['4']
     for i in range(5,len(lst)+5):
         if f'{i}' in user_inputs:
             lst[i]= True if responses[f'{i}'] == 'Yes' else False
@@ -202,9 +197,10 @@ def recommend(responses):
     df.sort_values(by='model',ascending=True,inplace=True)
     df["SN"] = list(range(len(df.index)))
     df=df.set_index('SN')
+
+    df.loc[0,'fast_charging']=20#Inputting value for iphone for ffill to work better
+    df.loc[0,'extended_upto']=0
     df =df.ffill(axis=0)
-    df.fillna({'fast_charging':22},inplace=True) #ffill didn't work for iphone 11 and iphone 11 pro in the 1st run of code. so it manually for 2 mobiles
-    df.fillna({'extended_upto':0},inplace=True) #ffill didn't work for iphone 11 and iphone 11 pro in the 1st run of code. so it manually for 2 mobiles
     df.info()
 
 
@@ -362,22 +358,22 @@ def recommend(responses):
     #Creating a column for the final recommendation dataset
     df3 = df2.copy()
     #Using the Exact Question (0-4)
-    if(lst[0]==1):
+    if(lst[0]=='1'):
         df3.query("brand_name == 'apple'",inplace=True)
-    elif(lst[0]==2):
+    elif(lst[0]=='2'):
         df3.query("brand_name != 'apple'",inplace=True)
-    if(lst[1]==2):
+    if(lst[1]=='2'):
         user_brand = input("Enter the brand you want  :  ")
         df3.query(f"brand_name == '{user_brand}'",inplace=True)
-    if(lst[2]==1):
+    if(lst[2]=='1'):
         df3.query("screen_size <= 6.1",inplace=True)
-    elif(lst[2]==2):
+    elif(lst[2]=='2'):
         df3.query("screen_size > 6.1 and screen_size <=6.6",inplace=True)
-    elif(lst[2]==3):
+    elif(lst[2]=='3'):
         df3.query("screen_size > 6.6",inplace=True)
-    if(lst[3]==1):
+    if(lst[3]=='1'):
         df3.query("has_5g == True",inplace=True)
-    elif(lst[3]==2):
+    elif(lst[3]=='2'):
         df3.query("has_5g != False",inplace=True)
     budget_min, budget_max = map(int,lst[4].split('-'))
     df3.query(f"price >= {budget_min} and price <= {budget_max}",inplace=True)
