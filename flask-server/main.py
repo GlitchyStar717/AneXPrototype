@@ -164,18 +164,18 @@ def recommend(responses):
             lst[1]=2
     if '2' in user_inputs:
         if responses['2'] == 'below 6.1"':
-            lst[1]=1
+            lst[2]=1
         elif responses['2'] == 'between 6.1" & 6.6"':
-            lst[1]=2
+            lst[2]=2
         elif responses['2'] == 'above 6.6"':
-            lst[1]=3
+            lst[2]=3
         else:
-            lst[1]=4
+            lst[2]=4
     if '3' in user_inputs:
         if responses['3'] == 'Yes':
-            lst[0]=1
+            lst[3]=1
         elif responses['3'] == 'No':
-            lst[0]=2
+            lst[3]=2
     if '4' in user_inputs:
         if responses['4'] == 'Budget':
             lst[4]="5000-20000"
@@ -362,22 +362,22 @@ def recommend(responses):
     #Creating a column for the final recommendation dataset
     df3 = df2.copy()
     #Using the Exact Question (0-4)
-    if(lst[0]=='1'):
+    if(lst[0]==1):
         df3.query("brand_name == 'apple'",inplace=True)
-    elif(lst[0]=='2'):
+    elif(lst[0]==2):
         df3.query("brand_name != 'apple'",inplace=True)
-    if(lst[1]=='2'):
+    if(lst[1]==2):
         user_brand = input("Enter the brand you want  :  ")
         df3.query(f"brand_name == '{user_brand}'",inplace=True)
-    if(lst[2]=='1'):
+    if(lst[2]==1):
         df3.query("screen_size <= 6.1",inplace=True)
-    elif(lst[2]=='2'):
+    elif(lst[2]==2):
         df3.query("screen_size > 6.1 and screen_size <=6.6",inplace=True)
-    elif(lst[2]=='3'):
+    elif(lst[2]==3):
         df3.query("screen_size > 6.6",inplace=True)
-    if(lst[3]=='1'):
+    if(lst[3]==1):
         df3.query("has_5g == True",inplace=True)
-    elif(lst[3]=='2'):
+    elif(lst[3]==2):
         df3.query("has_5g != False",inplace=True)
     budget_min, budget_max = map(int,lst[4].split('-'))
     df3.query(f"price >= {budget_min} and price <= {budget_max}",inplace=True)
