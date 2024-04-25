@@ -22,14 +22,13 @@ def submit_responses():
 @app.route('/predictions')
 def get_predictions():
     responses = session.get('responses')
-    predictions = calculate_predictions(responses)
+    predictions = recommend(responses)
     return jsonify({"predictions": predictions})
 
-def calculate_predictions(responses):
-    responses = session.get('responses')
-    print("\n\n\nRESPONSES        :       ",responses,end='\n\n\n\n')
-    predicted_phones = ["Samsung A20", "Iphone 11", "Nokia 3310", "Samsung S20", "OnePlus 8"]
-    return predicted_phones
+# def calculate_predictions(responses):
+#     responses = session.get('responses')
+#     print("\n\n\nRESPONSES        :       ",responses,end='\n\n\n\n')
+#     return predicted_phones
 
 
 
