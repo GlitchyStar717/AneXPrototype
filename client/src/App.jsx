@@ -63,10 +63,47 @@ function App() {
       });
   }, []);
 
+
+  // Function to render input field for the specific question
+  const renderInput = (question, index) => {
+    if (question.question === "What is your budget range?") {
+      return (
+        <input
+          type="text"
+          id={`question-${index}-text`}
+          name={`question-${index}`}
+          placeholder="Lower range-Higher Range"
+          className="custom-text-input" // Add custom class
+          onChange={(e) => handleChange(index, e.target.value)}
+        />
+      );
+    }
+    // Render radio buttons for other questions
+    return (
+      <div>
+        {question.options.map((option, optionIndex) => (
+          <div key={optionIndex}>
+            <input
+              type="radio"
+              id={`question-${index}-${optionIndex}`}
+              name={`question-${index}`}
+              value={option}
+              onChange={() => handleChange(index, option)}
+            />
+            <label htmlFor={`question-${index}-${optionIndex}`}>{option}</label>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+
+
+
   return (
     <>
       <div>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           {questions.map((question, index) => (
             <div key={index}>
               <p>{question.question}</p>
@@ -106,6 +143,16 @@ function App() {
                   <label htmlFor={`question-${index}-no`}>No</label>
                 </div>
               )}
+            </div>
+          ))}
+          <button type="submit">Submit</button>
+        </form> */}
+
+        <form onSubmit={handleSubmit}>
+          {questions.map((question, index) => (
+            <div key={index}>
+              <p>{question.question}</p>
+              {renderInput(question, index)}
             </div>
           ))}
           <button type="submit">Submit</button>
