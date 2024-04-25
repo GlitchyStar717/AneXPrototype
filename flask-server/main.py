@@ -455,4 +455,7 @@ def recommend(responses):
 
     #Returning the final recommendation
     df3.sort_values(by='rating',ascending=False,inplace=True)
-    return list(df3.loc[0:10])
+    top5 = df3.head()
+    print(top5)
+    phoneNames = top5['model'].tolist() 
+    return phoneNames

@@ -114,7 +114,12 @@ function App() {
         {predictions && (
           <div>
             <h2>Predictions:</h2>
-            <p>{predictions}</p>
+            {predictions.map((prediction, index) => (
+              <div key={index}>
+                <p>{prediction}</p>
+                <br />
+              </div>
+            ))}
           </div>
         )}
       </div>

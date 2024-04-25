@@ -1,4 +1,3 @@
-# import pandas as pd
 from flask import Flask, request, jsonify, session # type: ignore
 from flask_cors import CORS # type: ignore
 from main import question_list, recommend
