@@ -6,7 +6,7 @@ function App() {
   const [questions, setQuestions] = useState([]);
 
   // State to store user responses
-  const [responses, setResponses] = useState([]);
+  let [responses, setResponses] = useState([]);
   const [predictions, setPredictions] = useState(null);
 
   // Function to handle form submission
